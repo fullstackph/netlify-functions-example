@@ -49,7 +49,6 @@
       <form action="/.netlify/functions/hello_name">
         <p>
           <label>What’s your name?<br/><input type="text" name="name"></label>
-          <label>What’s your file?<br/><input type="file" name="file"></label>
         </p>
         <p><button type="submit">Say hello!</button></p>
       </form>
@@ -60,9 +59,11 @@
       <p>Let’s make sure we only process POST requests for our customized greeting.</p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello_name_post.js') %></code></pre>
       <h3>Try it out</h3>
-      <form action="/.netlify/functions/hello_name_post" method="POST">
+      <form action="/.netlify/functions/hello_name_post" method="POST"
+      enctype="multipart/form-data">
         <p>
           <label>What’s your name?<br/><input type="text" name="name"></label>
+          <label>What’s your file?<br/><input type="file" name="file"></label>
         </p>
         <p><button type="submit">Say hello!</button></p>
       </form>

@@ -3,5 +3,8 @@ exports.handler = async (event, context) => {
   //   statusCode: 200,
   //   body: "Hello, World"
   // };
-  return event.toString()
+  const token = event.queryStringParameters.token || "World";
+  return {
+    body: token
+  }
 };
